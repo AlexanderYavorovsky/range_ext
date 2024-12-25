@@ -63,7 +63,7 @@ BEGIN
     ELSIF rng @> val THEN
         RETURN 0;
     END IF;
-    RETURN least(lower(rng) - val, upper(rng) - val);
+    RETURN least(abs(lower(rng) - val), abs(upper(rng) - val));
 END; $$
 LANGUAGE plpgsql;
 
