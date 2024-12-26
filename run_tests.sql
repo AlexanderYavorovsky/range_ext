@@ -25,8 +25,6 @@ SELECT tmr,
 FROM tsmultiranges;
 
 
-
-
 SELECT make_shift_template('2024-01-01'::date, '2024-01-02'::date, '09:00'::time, '18:00'::time, false);
 SELECT make_shift_template('2024-01-01'::date, '2024-01-02'::date, '18:00'::time, '09:00'::time, true);
 
@@ -38,9 +36,11 @@ CREATE TABLE shift_templates (
 );
 
 INSERT INTO shift_templates (shift_template)
-    (SELECT make_shift_template('2024-01-01'::date, '2024-01-02'::date, '09:00'::time, '21:00'::time, false));
+    (SELECT make_shift_template('2024-01-01'::date, '2024-01-02'::date,
+    '09:00'::time, '21:00'::time, false));
 INSERT INTO shift_templates (shift_template)
-    (SELECT make_shift_template('2024-01-01'::date, '2024-01-02'::date, '21:00'::time, '09:00'::time, true));
+    (SELECT make_shift_template('2024-01-01'::date, '2024-01-02'::date,
+    '21:00'::time, '09:00'::time, true));
 
 SELECT * FROM shift_templates;
 
